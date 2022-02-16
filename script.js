@@ -1,31 +1,32 @@
-function startTimer() {
-  var presentTime = document.getElementById('timer').innerHTML;
-  console.log(presentTime)
-  var timeArray = presentTime.split(/[:]+/);
+function timer() {
+  let currentTime = document.getElementById('time').innerHTML;
+  console.log(currentTime)
+  let timeArray = currentTime.split(/[:]+/);
   console.log(timeArray)
-  var m = timeArray[0];
-  var s = checkSecond((timeArray[1] - 1));
-  if(s==59){m=m-1}
-  if(m<0){
-    return
+  var min = timeArray[0]; //take minutes
+  var sec = secondTimer((timeArray[1] - 1));
+  if(sec==59){min=min-1}
+  if(min<0){
+    return document.getElementById('time').innerHTML = "time is over!"
   }
-  if (s==0 && m ==0){
-      console.log("time is over")
-  }
-  document.getElementById('timer').innerHTML =
-    m + ":" + s;
-  console.log(m)
-  setTimeout(startTimer, 1000);
-  
+//   if (sec==0 && min ==0){
+//     document.getElementById('time').innerHTML = "time is over!"
+//       //compare scores between computer and human
+//   }
+
+  document.getElementById('time').innerHTML =
+    min + ":" + sec;
+  console.log(min)
+  setTimeout(timer, 1000);
 }
 
-function checkSecond(sec) {
+function secondTimer(sec) {
   if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
   if (sec < 0) {sec = "59"};
   return sec;
 }
 
 
-document.getElementById('timer').innerHTML =
-  01 + ":" + 11;
-startTimer();
+document.getElementById('time').innerHTML =
+  00 + ":" + 05;
+timer();
