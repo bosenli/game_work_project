@@ -10,24 +10,23 @@
   </head>
   <body>
     <h1>scissor rock paper game</h1>
+    <h4>choose your bet vs. computer and hope you can win the game in 30 seconds! </h4>
     <div>
         Time remaining: <b><span id="time"></span></b> 
     </div>
-    <div class="score">your score:</div>
-    <div class="computer">computer score:</div>
-    <div class="user">
-        <button>scissor</button>
-        <button>rock</button>
-        <button>paper</button>
-        <button type="reset">game reset</button>
-        <button type="win">cheat: I win</button>
-    </div>
-    <div class="robot">
 
+    <div id="playerScore"></div>
+    <div id="computerScore"></div>
+    <div class="user">
+        <button id="scissor">scissor</button>
+        <button id="rock">rock</button>
+        <button id="paper">paper</button>
+        <button id="reset">reset score</button>
+        <button id="iWin">cheat: I win</button>
     </div>
-    <!-- </div> -->
-    <div class="showResult">
-      
-    </div>
+    <div id="showYourChoice"></div>
+    <div id="showComputerChoice"></div>
+    <div id="showResult"> </div>
+    <div id="winner"></div>
   </body>
 </html>
