@@ -9,8 +9,14 @@
     <title>gussing scissor rock paper game</title>
   </head>
   <body>
-    <h1>scissor rock paper game</h1>
-    <h4>choose your bet vs. computer and hope you can win the game in 30 seconds! </h4>
+    <h1>SCISSOR ROCK PAPER GAME</h1>
+    <h4>choose your bet VS. computer and hope you can win the game in 30 seconds! </h4>
+    <div>
+        <img src='/img/paper.GIF' alt="paper" width="150" height="160">
+        <img src='/img/rock.GIF' alt="rock" width="150" height="160">
+        <img src='/img/scissor.GIF' alt="scissor" width="150" height="160">
+    </div>
+
     <div>
         Time remaining: <b><span id="time"></span></b> 
     </div>
@@ -24,9 +30,10 @@
         <button id="reset">reset score</button>
         <button id="iWin">cheat: I win</button>
     </div>
-    <div id="showYourChoice"></div>
-    <div id="showComputerChoice"></div>
-    <div id="showResult"> </div>
+
+    <div id="showYourChoice"><img id="playerChoice" /></div>
+    <div id="showComputerChoice"><img id="computerChoice" /></div>
+    <div id="showResult"></div>
     <div id="winner"></div>
   </body>
 </html>

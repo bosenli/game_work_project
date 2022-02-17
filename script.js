@@ -5,18 +5,26 @@ const showYourChoice = document.getElementById('showYourChoice');
 const showComputerChoice = document.getElementById('showComputerChoice');
 const result = document.getElementById('showResult');
 const announceWinner = document.getElementById('winner');
-//winner function
-const postWinner = () =>{
-    if (playerScore > computerScore){
-        announceWinner.innerHTML = 'Congratlations! You won the game!';
-    } else if (playerScore > computerScore) {
-        announceWinner.innerHTML = 'Too bad! Computer won the game! I encourage you to try again! ';
+const image = {
+    'paper' : '/img/paper.GIF',
+    'rock' : '/img/rock.GIF',
+    'scissor': '/img/scissor.GIF'
+}
+const img = document.querySelector("img");
+img["src"]=image['paper'];
+
+const chooseImage = (choice) =>{
+    if (choice == 'paper'){
+        img["src"]=image['paper'];
+        
+    } else if (choice === 'rock'){
+        img["src"]=image['paper'];
     } else {
-        announceWinner.innerHTML = 'Tie ! You almost there!';
+        img["src"]=image['paper'];
     }
 }
 
-//Time
+//build Timer
 function timer() {
   let currentTime = document.getElementById('time').innerHTML;
   //console.log(currentTime)
@@ -26,17 +34,13 @@ function timer() {
   var sec = secondTimer((timeSplit[1] - 1));
   if(sec == 59)
     { min= min-1}
-  if(min<0){//stophere
+  if(min<0){//stop here
     document.getElementById('time').innerHTML = "time is over!";
     showYourChoice.innerHTML = "";
     showComputerChoice.innerHTML="";
     result.innerHTML="";
     return postWinner();
   }
-//   if (sec==0 && min ==0){
-//     document.getElementById('time').innerHTML = "time is over!"
-//       //compare scores between computer and human
-//   }
 
   document.getElementById('time').innerHTML = min + ":" + sec;
   //console.log(min)
@@ -51,8 +55,8 @@ function secondTimer(sec) {
   return sec;
 }
 
-document.getElementById('time').innerHTML = 00 + ":" + 05;
-timer(); //start
+document.getElementById('time').innerHTML = 00 + ":" + 30;
+timer(); //timer start
 
 //computer random choice
 const randomChoice = ()=>{
@@ -63,17 +67,20 @@ const randomChoice = ()=>{
 }
 //randomChoice();   testing
 
-//player choice
+//player choice by clicking button
 choiceBtns.forEach(function (btn) {
     btn.addEventListener('click', function() {
         let playerChoice = btn.id;
         let computerChoice = randomChoice();
         showYourChoice.textContent = `Yours: ${playerChoice}`;
+        chooseImage(playerChoice);
         showComputerChoice.textContent=` Computer choose: ${computerChoice}`;
+        chooseImage(computerChoice);
         compareChoice(computerChoice,playerChoice);
-        
     });
   });
+
+//set initial value
 var playerScore = 0;
 var computerScore = 0;
 playerScoreTotal.textContent = `Your score: ${playerScore}`;
@@ -137,4 +144,13 @@ const compareChoice = (computerChoice, playerChoice)=> {
 }
 
 
-
+//winner function
+const postWinner = () =>{
+    if (playerScore > computerScore){
+        announceWinner.innerHTML = 'Congratlations! You won the game!';
+    } else if (playerScore > computerScore) {
+        announceWinner.innerHTML = 'Too bad! Computer won the game! I encourage you to try again! ';
+    } else {
+        announceWinner.innerHTML = 'Tie ! You almost there!';
+    }
+}
