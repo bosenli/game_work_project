@@ -1,6 +1,8 @@
 # game_work_project
 
-Rock, Scissor , Paper used technology includes DOM manipulation , the approach taken, a link to your live site, installation instructions, unsolved problems, etc.
+Rock, Scissor , Paper used technology includes DOM manipulation , the approach taken TOP DOWN.
+
+The game is not perfect yet. I want to show hand gesture when a choice is choosen that is awaiting to implement.
 
 # Game players will come against computer:
 Players aka. users will place a bet to against computer's random choice
