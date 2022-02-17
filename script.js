@@ -10,19 +10,17 @@ const image = {
     'rock' : '/img/rock.GIF',
     'scissor': '/img/scissor.GIF'
 }
-const img = document.querySelector("img");
-img["src"]=image['paper'];
-
-const chooseImage = (choice) =>{
-    if (choice == 'paper'){
-        img["src"]=image['paper'];
-        
-    } else if (choice === 'rock'){
-        img["src"]=image['paper'];
-    } else {
-        img["src"]=image['paper'];
-    }
-}
+//const imge = document.querySelector("img");
+//img["src"]=image['paper'];
+// const chooseImage = (choice) =>{
+//     if (choice == 'paper'){
+//         imge[0].setAttribute('src', image[paper]);
+//     } else if (choice === 'rock'){
+//         imge[0].setAttribute('src', image[rock]);
+//     } else {
+//         imge[0].setAttribute('src', image[scissor]);
+//     }
+// }
 
 //build Timer
 function timer() {
