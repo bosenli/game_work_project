@@ -54,7 +54,7 @@ function secondTimer(sec) {
   return sec;
 }
 
-document.getElementById('time').innerHTML = 00 + ":" + 02;
+document.getElementById('time').innerHTML = 00 + ":" + 30;
 timer(); //timer start
 
 //computer random choice
@@ -70,12 +70,22 @@ const randomChoice = ()=>{
 choiceBtns.forEach(function (btn) {
     btn.addEventListener('click', function() {
         let playerChoice = btn.id;
-        let computerChoice = randomChoice();
         showYourChoice.textContent = `Yours: ${playerChoice}`;
-        chooseImage(playerChoice);
-        showComputerChoice.textContent=` Computer choose: ${computerChoice}`;
-        chooseImage(computerChoice);
-        compareChoice(computerChoice,playerChoice);
+        let computerChoice = randomChoice();
+        //chooseImage(playerChoice);
+        if (playerChoice === 'restart'){
+            showComputerChoice.textContent="";
+            result.textContent = 'restarting';
+            computerScore = 0;
+            playerScore = 0;
+            computerScoreTotal.textContent = `Computer score: ${computerScore}`;
+            playerScoreTotal.textContent = `Your score: ${playerScore}`;
+            document.getElementById('time').innerHTML = 00 + ":" + 30;
+        }
+        else {
+            showComputerChoice.textContent=` Computer choose: ${computerChoice}`;
+        //chooseImage(computerChoice);
+            compareChoice(computerChoice,playerChoice);}
     });
   });
 
@@ -87,6 +97,7 @@ computerScoreTotal.textContent = `Computer score: ${computerScore}`;
 
 //compare Choice, if playerwin, score ++, else computer score++
 const compareChoice = (computerChoice, playerChoice)=> {
+ 
    
     if(playerChoice === 'iWin'){
         //player won
@@ -98,6 +109,7 @@ const compareChoice = (computerChoice, playerChoice)=> {
         result.textContent = 'No winer, score reset';
         computerScore = 0;
         playerScore = 0;
+        showComputerChoice.textContent="";
         computerScoreTotal.textContent = `Computer score: ${computerScore}`;
         playerScoreTotal.textContent = `Your score: ${playerScore}`;
         
