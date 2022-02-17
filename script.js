@@ -35,7 +35,8 @@ function timer() {
   if(sec == 59)
     { min= min-1}
   if(min<0){//stop here
-    document.getElementById('time').innerHTML = "time is over!";
+    document.getElementById('time').innerHTML = "Time is over !!";
+    document.getElementsByTagName("span")[0].setAttribute("style", "color: red");
     showYourChoice.innerHTML = "";
     showComputerChoice.innerHTML="";
     result.innerHTML="";
@@ -55,7 +56,7 @@ function secondTimer(sec) {
   return sec;
 }
 
-document.getElementById('time').innerHTML = 00 + ":" + 30;
+document.getElementById('time').innerHTML = 00 + ":" + 02;
 timer(); //timer start
 
 //computer random choice
